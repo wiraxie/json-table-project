@@ -50,7 +50,10 @@
         "Shift": "2"
     },  
 ]
-window.onload = function CreateTableFromJSON() {
+window.onload = function CreateTableFromJSON() 
+{
+    var ubah;
+    var hapus;
         // dapat value head. 
         var col = [];
         for (var i = 0; i < newObj.length; i++) 
@@ -67,7 +70,7 @@ window.onload = function CreateTableFromJSON() {
         // bikin table.
         var table = document.createElement("table");
 
-        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+        // bikin html row.
         var tr = table.insertRow(-1);                   // row tabel.
 
         for (var i = 0; i < col.length; i++) 
@@ -92,23 +95,26 @@ window.onload = function CreateTableFromJSON() {
                 tabCell.innerHTML = newObj[i][col[j]]
 
             }
+            ubah = tr.insertCell(-1);
+            ubah.outerHTML = "<button>EDIT</button>";
+
+            hapus = tr.insertCell(-1);
+            hapus.outerHTML = "<button>DELETE</button>"; 
         }
         //ikin button dari panjang json
-        var ubah;
-        var hapus;
-        for (var i =0; i<newObj.length; i++)
-        { 
-            ubah = tr.insertCell(-1);
-            ubah.outerHTML = "<button>EDIT</button>";  
-        }
-        console.log(ubah);
+        // for (var i =0; i<newObj.length; i++)
+        // { 
+        //     ubah = tr.insertCell(-1);
+        //     ubah.outerHTML = "<button>EDIT</button>";  
+        // }
+        // console.log(ubah);
 
-        for(var j=0; j<newObj.length; j++)
-        {
-            hapus = tr.insertCell(-1);
-            hapus.outerHTML = "<button>DELETE</button>";  
-        }
-        console.log(hapus);
+        // for(var j=0; j<newObj.length; j++)
+        // {
+        //     hapus = tr.insertCell(-1);
+        //     hapus.outerHTML = "<button>DELETE</button>";  
+        // }
+        // console.log(hapus);
 
         // container.
         var divContainer = document.getElementById("showData");
