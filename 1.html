@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!--ini css-->
     <link rel="stylesheet" href="1.css">
     
+    <!--ini script-->
     <script src="1.js"></script>
 </head>
 <body>
     <div id="showData" align="center"></div>
 
-    <!-- <button type="button" align="center" id="button">edit</button> -->
+    <div align = "center">
+    <button type="button" onclick="document.getElementById('formDiv').style.display='block'">munculkan</button>
+    </div>
 
-    <div id="form" align="center" class="floating-box">
-        <form>
+    <div id="formDiv" align="center" style="display:none">
+        <form class="floating-box" id="form">
             
             ID:
             <input type="text" disabled id="id" name="id" placeholder="ID">
@@ -26,15 +30,16 @@
             <input type="text" id="telp" name="telp" placeholder="telp">
 
             <br>shift:
+            <div id="shift" name="shift">
             <select>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
             </select>
-            
+            </div>
             <br>
             <button type="submit">Simpan</button>
-            <button type="submit">Batal</button>
+            <button type="submit" onclick="document.getElementById('formDiv').style.display='none'">Batal</button>
         </form>
     </div>
 

@@ -1,5 +1,5 @@
 window.onload = function CreateTableFromJSON() {
-        var newObj = [
+    var newObj = [
     {
         "id" : "1",
         "name": "Mamat",
@@ -49,11 +49,8 @@ window.onload = function CreateTableFromJSON() {
         "wilayah": "Kuningan",
         "telp": "101",
         "Shift": "2"
-    },
-
-    
+    },  
 ]
-
         // dapat value head. 
         var col = [];
         for (var i = 0; i < newObj.length; i++) 
@@ -80,7 +77,7 @@ window.onload = function CreateTableFromJSON() {
             tr.appendChild(th);
         }
 
-        // json to row.
+        // json masuk row.
         for (var i = 0; i < newObj.length; i++) 
         {
             tr = table.insertRow(-1);
@@ -93,7 +90,6 @@ window.onload = function CreateTableFromJSON() {
                 tabCell.innerHTML = newObj[i][col[j]]
             }
         }
-        //act
         
         //ikin button dari panjang json
         for (var i =0; i<newObj.length; i++)
