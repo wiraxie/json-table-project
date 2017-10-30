@@ -1,4 +1,3 @@
-window.onload = function CreateTableFromJSON() {
     var newObj = [
     {
         "id" : "1",
@@ -51,6 +50,7 @@ window.onload = function CreateTableFromJSON() {
         "Shift": "2"
     },  
 ]
+window.onload = function CreateTableFromJSON() {
         // dapat value head. 
         var col = [];
         for (var i = 0; i < newObj.length; i++) 
@@ -83,24 +83,28 @@ window.onload = function CreateTableFromJSON() {
             tr = table.insertRow(-1);
 
             // tabCell = Element.outerHTML = "<button>edit</button>";
-            //tabCell = Element.outerHTML = "<button>remove</button>";
+            // tabCell = Element.outerHTML = "<button>remove</button>";
+            
+            //cell tabel
             for (var j = 0; j < col.length; j++) 
             {
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = newObj[i][col[j]]
+
             }
         }
-        
         //ikin button dari panjang json
+        var tombol;
         for (var i =0; i<newObj.length; i++)
-        {
-            var tombol;
+        { 
             tombol = tr.insertCell(-1);
             tombol.outerHTML = "<button>EDIT</button>";  
         }
+        console.log(tombol);
 
         // container.
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
  }
+
