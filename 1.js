@@ -1,4 +1,4 @@
-var newObj = 
+newObj = 
 [
     {
         "ID" : "1",
@@ -62,8 +62,7 @@ window.onload = function tablejson()
             {
                 if (col.indexOf(key) === -1)  // EXTRACT VALUE FOR HTML HEADER. 
                 {
-                    col.push(key); 
-                    console.log(key);
+                    col.push(key);
                 }
             }  
         }
@@ -72,7 +71,7 @@ window.onload = function tablejson()
         //bikin table.//
         var table = document.createElement("table");
         table.setAttribute("id","table");
-        table.setAttribute("class", "table table-bordered");
+        table.setAttribute("class", "table table-bordered table-responsive");
 
         //bikin html row.//
         var tr = table.insertRow(-1);                   //row tabel.
@@ -90,8 +89,6 @@ window.onload = function tablejson()
             tr = table.insertRow(-1);
             tr.setAttribute("id", "row"+i);
             console.log(tr);
-            // tabCell = Element.outerHTML = "<button>edit</button>";
-            // tabCell = Element.outerHTML = "<button>remove</button>";
             
             //cell tabel
             for (var j = 0; j < col.length; j++) 
@@ -103,17 +100,36 @@ window.onload = function tablejson()
 
             //tombol ubah
             ubah = tr.insertCell(-1);
-            ubah.innerHTML = "<button onclick='klik()'>Ubah</button>";
+            ubah.innerHTML = "<button onclick='editRow()'>Ubah</button>";
             
-              function klik()
+              function editRow()
               {
                 document.getElementById("formDiv").style.display = "block";
+                
+                var id, nama, Wilayah, telp, shift;
+                id = document.getElementById("ID");
+                nama = document.getElementById("nama");
+                Wilayah = document.getElementById("Wilayah");
+                telp = document.getElementById("telp");
+                shift = document.getElementById("shift");
+
+                //....
               }
 
             //tombol hapus
             hapus = tr.insertCell(-1);
-            hapus.innerHTML = "<button>Hapus</button>"; 
+            hapus.innerHTML = "<button onclick='deleteRow()'>Hapus</button>"; 
             
+            function deleteRow(rowid)  
+            {   
+                var row = document.getElementById(rowid);
+                var table = row.parentNode;
+                while ( table && table.tagName != 'TABLE' )
+                    table = table.parentNode;
+                if ( !table )
+                    return;
+                table.deleteRow(row.rowIndex);
+            }
         }
 
         // container.
