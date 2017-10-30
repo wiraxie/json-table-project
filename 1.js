@@ -94,13 +94,21 @@ window.onload = function CreateTableFromJSON() {
             }
         }
         //ikin button dari panjang json
-        var tombol;
+        var ubah;
+        var hapus;
         for (var i =0; i<newObj.length; i++)
         { 
-            tombol = tr.insertCell(-1);
-            tombol.outerHTML = "<button>EDIT</button>";  
+            ubah = tr.insertCell(-1);
+            ubah.outerHTML = "<button>EDIT</button>";  
         }
-        console.log(tombol);
+        console.log(ubah);
+
+        for(var j=0; j<newObj.length; j++)
+        {
+            hapus = tr.insertCell(-1);
+            hapus.outerHTML = "<button>DELETE</button>";  
+        }
+        console.log(hapus);
 
         // container.
         var divContainer = document.getElementById("showData");
